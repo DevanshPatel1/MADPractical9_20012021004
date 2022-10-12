@@ -9,7 +9,7 @@ import android.provider.Telephony
 class SMSBroadcastReceiver : BroadcastReceiver() {
 
     interface Listener{
-        fun onTextReceived(sPhone: String?, sMsg: String?)
+        fun onTextReceived( sPhone: String?, sMsg: String?)
     }
 
     var listener: Listener?=null
