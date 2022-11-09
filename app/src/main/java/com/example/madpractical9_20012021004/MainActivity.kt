@@ -54,6 +54,9 @@ class MainActivity : AppCompatActivity() {
             //toast
             return
         }
+        else{
+            checkRequestPermission()
+        }
         val smsmanager = SmsManager.getDefault()
         if(smsmanager!=null){
             smsmanager.sendTextMessage(sPhone, null, sMsg, null, null)
@@ -77,7 +80,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadSMSInbox(){
-        if(!checkRequestPermission()) return
+        if(!checkRequestPermission()){ 
+            return
+        }
+        else{
+            checkRequestPermission()
+        }
         val uriSMS = Uri.parse("content://sms/inbox")
         val c = contentResolver.query(uriSMS, null, null, null, null)
         al.clear()
